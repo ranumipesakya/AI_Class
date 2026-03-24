@@ -1,25 +1,40 @@
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, BookOpen, Download } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+
 import g6L1Pdf from '../assets/G6-L1.pdf';
+import g6L2Pdf from '../assets/G6-L2.pdf';
+import g6L3Pdf from '../assets/G6-L3.pdf';
+import g6L4Pdf from '../assets/G6-L4.pdf';
+import g6L5Pdf from '../assets/G6-L5.pdf';
+import g6L6Pdf from '../assets/G6-L6.pdf';
+import g6L7Pdf from '../assets/G6-L7.pdf';
+import g6L8Pdf from '../assets/G6-L8.pdf';
+import g6L9Pdf from '../assets/G6-L9.pdf';
+import g6L10Pdf from '../assets/G6-L10.pdf';
+import g6L11Pdf from '../assets/G6-L11.pdf';
+import g6L12Pdf from '../assets/G6-L12.pdf';
+import g6L13Pdf from '../assets/G6-L13.pdf';
+import g6L14Pdf from '../assets/G6-L14.pdf';
+import g6L15Pdf from '../assets/G6-L15.pdf';
 
 // Hardcoded DB of Grade 6 Buddhism Chapters
 const grade6BuddhismChapters = [
   { id: 1, en: "The wonderful prince Bosat", si: "අසිරිමත් බෝසත් කුමරු", pdfUrl: g6L1Pdf },
-  { id: 2, en: "Childhood and Youth of Prince Sidhu", si: "සිදුහත් කුමරුගේ ළමාවිය" },
-  { id: 3, en: "Lord Buddha, the teacher of the world", si: "තිලොවට ගුරු බුදුපියාණෝ" },
-  { id: 4, en: "Let's go to the temple", si: "අපි පන්සල් යමු" },
-  { id: 5, en: "Let's spread meth hearts to everyone", si: "පතුරමු සැමට මෙත්සිත්" },
-  { id: 6, en: "Little monk Rahula", si: "රාහුල පොඩි හාමුදුරුවෝ" },
-  { id: 7, en: "The Golden Gates of Progress", si: "දියුණුවේ රන් දොරටු" },
-  { id: 8, en: "Sila for Nourishment of Life", si: "දිවිමග සරු කරන සීලය" },
-  { id: 9, en: "Let's kept Pansil", si: "පන්සිල් රකිමු" },
-  { id: 10, en: "Parental Virtues Varuna", si: "මව්පිය ගුණ වරුණ" },
-  { id: 11, en: "Young People Who Overcame Challenges", si: "අභියෝග ජයගත් යොවුන්විය" },
-  { id: 12, en: "Let's Save Ours", si: "අපේකම සුරකිමු" },
-  { id: 13, en: "Let's know good and bad and engage in good", si: "හොද නරක දැනගෙන හොද දේ කරමු" },
-  { id: 14, en: "Be Resilient to Change", si: "වෙනස් වීමට ඔරොත්තු දෙමු" },
-  { id: 15, en: "Let's Get Rid of Guilt", si: "වරදින් මිදෙමු" },
+  { id: 2, en: "Childhood and Youth of Prince Sidhu", si: "සිදුහත් කුමරුගේ ළමාවිය", pdfUrl: g6L2Pdf },
+  { id: 3, en: "Lord Buddha, the teacher of the world", si: "තිලොවට ගුරු බුදුපියාණෝ", pdfUrl: g6L3Pdf },
+  { id: 4, en: "Let's go to the temple", si: "අපි පන්සල් යමු", pdfUrl: g6L4Pdf },
+  { id: 5, en: "Let's spread meth hearts to everyone", si: "පතුරමු සැමට මෙත්සිත්", pdfUrl: g6L5Pdf },
+  { id: 6, en: "Little monk Rahula", si: "රාහුල පොඩි හාමුදුරුවෝ", pdfUrl: g6L6Pdf },
+  { id: 7, en: "The Golden Gates of Progress", si: "දියුණුවේ රන් දොරටු", pdfUrl: g6L7Pdf },
+  { id: 8, en: "Sila for Nourishment of Life", si: "දිවිමග සරු කරන සීලය", pdfUrl: g6L8Pdf },
+  { id: 9, en: "Let's kept Pansil", si: "පන්සිල් රකිමු", pdfUrl: g6L9Pdf },
+  { id: 10, en: "Parental Virtues Varuna", si: "මව්පිය ගුණ වරුණ", pdfUrl: g6L10Pdf },
+  { id: 11, en: "Young People Who Overcame Challenges", si: "අභියෝග ජයගත් යොවුන්විය", pdfUrl: g6L11Pdf },
+  { id: 12, en: "Let's Save Ours", si: "අපේකම සුරකිමු", pdfUrl: g6L12Pdf },
+  { id: 13, en: "Let's know good and bad and engage in good", si: "හොද නරක දැනගෙන හොද දේ කරමු", pdfUrl: g6L13Pdf },
+  { id: 14, en: "Be Resilient to Change", si: "වෙනස් වීමට ඔරොත්තු දෙමු", pdfUrl: g6L14Pdf },
+  { id: 15, en: "Let's Get Rid of Guilt", si: "වරදින් මිදෙමු", pdfUrl: g6L15Pdf },
   { id: 16, en: "When Protects the Environment, It Will Save...", si: "පරිසරය රැකගත් විට එය අපත් රකියි" },
   { id: 17, en: "Let's Go to the Season of Mihindu Ma Himi", si: "මිහිඳු මා හිමි සමයට යමු" },
   { id: 18, en: "Let's Save the Cultural Legacy", si: "ශාසනික දායාද සුරකිමු" },
