@@ -1,10 +1,11 @@
 import { useParams, Link } from 'react-router-dom';
 import { ArrowLeft, BookOpen, Download } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
+import g6L1Pdf from '../assets/G6-L1.pdf';
 
 // Hardcoded DB of Grade 6 Buddhism Chapters
 const grade6BuddhismChapters = [
-  { id: 1, en: "The wonderful prince Bosat", si: "අසිරිමත් බෝසත් කුමරු" },
+  { id: 1, en: "The wonderful prince Bosat", si: "අසිරිමත් බෝසත් කුමරු", pdfUrl: g6L1Pdf },
   { id: 2, en: "Childhood and Youth of Prince Sidhu", si: "සිදුහත් කුමරුගේ ළමාවිය" },
   { id: 3, en: "Lord Buddha, the teacher of the world", si: "තිලොවට ගුරු බුදුපියාණෝ" },
   { id: 4, en: "Let's go to the temple", si: "අපි පන්සල් යමු" },
@@ -53,13 +54,16 @@ const SubjectDetails = () => {
     }));
   }
 
-  // Handler for opening a specific PDF. Assume they're stored in public/assets/pdf/
-  const openPdf = (chapterId) => {
-    // We construct a dynamic path. The user said they will put them in src/assets but publicly accessible standard is via `/assets/...`
-    // Example: /assets/g6/buddhism/chapter_1.pdf
-    const pdfPath = `/assets/${gradeId}/${subjectName.toLowerCase().replace(/\s+/g, '')}/chapter_${chapterId}.pdf`;
+  // Handler for opening a specific PDF. 
+  const openPdf = (chapter) => {
+    // If we have an explicit imported PDF URL, use it immediately
+    if (chapter.pdfUrl) {
+      window.open(chapter.pdfUrl, '_blank');
+      return;
+    }
     
-    // Open in new tab
+    // Otherwise construct a dynamic path from public/assets
+    const pdfPath = `/assets/${gradeId}/${subjectName.toLowerCase().replace(/\s+/g, '')}/chapter_${chapter.id}.pdf`;
     window.open(pdfPath, '_blank');
   };
 
@@ -86,7 +90,7 @@ const SubjectDetails = () => {
         {chapters.map((chapter) => (
           <button 
             key={chapter.id}
-            onClick={() => openPdf(chapter.id)}
+            onClick={() => openPdf(chapter)}
             className="card overflow-hidden bg-white border border-slate-200 hover:border-primary-400 hover:shadow-xl transition-all flex flex-col group text-left h-full"
           >
             {/* Text Area */}
