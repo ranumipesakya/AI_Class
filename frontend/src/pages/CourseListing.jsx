@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Search, Book, ArrowRight, Bookmark } from 'lucide-react';
+import { Search, Book, ArrowRight, Bookmark, Image as ImageIcon } from 'lucide-react';
 import { useTranslation } from 'react-i18next';
 import { Link } from 'react-router-dom';
 
@@ -17,10 +17,10 @@ const olSubjects = [
 ];
 
 const alStreams = [
-  { name: "Bio Science", icon: "🧬", color: "from-emerald-400 to-emerald-600" },
-  { name: "Physical Science (Maths)", icon: "📐", color: "from-blue-400 to-blue-600" },
-  { name: "Commerce", icon: "📊", color: "from-amber-400 to-amber-600" },
-  { name: "Art", icon: "🎨", color: "from-violet-400 to-violet-600" }
+  { name: "Bio Science", icon: "🧬", color: "from-emerald-400 to-emerald-600", image: "https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=600&h=400&fit=crop&q=80" },
+  { name: "Physical Science (Maths)", icon: "📐", color: "from-blue-400 to-blue-600", image: "https://images.unsplash.com/photo-1509228468518-1ea51ce08906?w=600&h=400&fit=crop&q=80" },
+  { name: "Commerce", icon: "📊", color: "from-amber-400 to-amber-600", image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=600&h=400&fit=crop&q=80" },
+  { name: "Art", icon: "🎨", color: "from-violet-400 to-violet-600", image: "https://images.unsplash.com/photo-1544640808-32cb4f68eb90?w=600&h=400&fit=crop&q=80" }
 ];
 
 const grades = [
@@ -33,6 +33,23 @@ const grades = [
   { id: 'g12', name: 'Grade 12 (A/L)', type: 'al' },
   { id: 'g13', name: 'Grade 13 (A/L)', type: 'al' }
 ];
+
+// AI Helper to fetch a relevant high quality image based on the subject name
+const getSubjectImage = (subject) => {
+  const s = subject.toLowerCase();
+  if (s.includes('math')) return 'https://images.unsplash.com/photo-1509228468518-1ea51ce08906?w=400&h=300&fit=crop&q=80';
+  if (s.includes('science') || s.includes('bio') || s.includes('chem') || s.includes('physic')) return 'https://images.unsplash.com/photo-1532094349884-543bc11b234d?w=400&h=300&fit=crop&q=80';
+  if (s.includes('ict') || s.includes('comput') || s.includes('tech') || s.includes('electronic')) return 'https://images.unsplash.com/photo-1517694712202-14dd9538aa97?w=400&h=300&fit=crop&q=80';
+  if (s.includes('history') || s.includes('civic')) return 'https://images.unsplash.com/photo-1461360228753-45a16757c2c2?w=400&h=300&fit=crop&q=80';
+  if (s.includes('geography')) return 'https://images.unsplash.com/photo-1521295121783-8a321d551ad2?w=400&h=300&fit=crop&q=80';
+  if (s.includes('art') || s.includes('dance') || s.includes('music') || s.includes('drama') || s.includes('natyam')) return 'https://images.unsplash.com/photo-1514320291840-2e0a9ca66415?w=400&h=300&fit=crop&q=80';
+  if (s.includes('agri') || s.includes('environment')) return 'https://images.unsplash.com/photo-1586771107445-d7afcb84e1ed?w=400&h=300&fit=crop&q=80';
+  if (s.includes('buddh') || s.includes('religion') || s.includes('catholic') || s.includes('islam') || s.includes('hindu')) return 'https://images.unsplash.com/photo-1604882583279-37326eeb6f15?w=400&h=300&fit=crop&q=80';
+  if (s.includes('english') || s.includes('sinhala') || s.includes('tamil') || s.includes('language') || s.includes('french') || s.includes('chinese') || s.includes('pali') || s.includes('sanskrit')) return 'https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=400&h=300&fit=crop&q=80';
+  if (s.includes('business') || s.includes('commer') || s.includes('account') || s.includes('entrepreneur')) return 'https://images.unsplash.com/photo-1460925895917-afdab827c52f?w=400&h=300&fit=crop&q=80';
+  if (s.includes('home') || s.includes('health') || s.includes('design')) return 'https://images.unsplash.com/photo-1505576399279-565b52d4ac71?w=400&h=300&fit=crop&q=80';
+  return 'https://images.unsplash.com/photo-1522204523326-0686920b12bc?w=400&h=300&fit=crop&q=80';
+};
 
 const CourseListing = () => {
   const { t } = useTranslation();
@@ -86,13 +103,19 @@ const CourseListing = () => {
 
       {/* Middle School Render (Grades 6-9) */}
       {currentGrade.type === 'middle' && (
-        <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
           {middleSchoolSubjects.map((subject, idx) => (
-            <Link to={`/subject/${currentGrade.id}/${subject}`} key={idx} className="bg-white border hover:border-primary-400 hover:shadow-lg rounded-xl p-5 flex flex-col items-center justify-center text-center gap-3 transition-all group">
-              <div className="w-12 h-12 rounded-full bg-primary-50 text-primary-600 flex items-center justify-center group-hover:scale-110 transition-transform">
-                <Book className="w-6 h-6" />
+            <Link to={`/subject/${currentGrade.id}/${subject}`} key={idx} className="bg-white group rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all border border-slate-100 flex flex-col h-56">
+              <div className="h-32 w-full relative overflow-hidden bg-slate-200">
+                <img src={getSubjectImage(subject)} alt={subject} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-900/60 to-transparent"></div>
               </div>
-              <span className="font-semibold text-slate-800 group-hover:text-primary-700">{subject}</span>
+              <div className="p-4 bg-white flex items-center justify-between flex-grow">
+                <span className="font-bold text-slate-800 group-hover:text-primary-600 text-lg">{subject}</span>
+                <div className="bg-primary-50 p-2 rounded-full text-primary-600 group-hover:bg-primary-600 group-hover:text-white transition-colors">
+                  <ArrowRight size={18} />
+                </div>
+              </div>
             </Link>
           ))}
         </div>
@@ -100,18 +123,24 @@ const CourseListing = () => {
 
       {/* O/L Render (Grades 10-11) */}
       {currentGrade.type === 'ol' && (
-        <div className="space-y-8">
+        <div className="space-y-10">
           {olSubjects.map((section, idx) => (
-            <div key={idx} className="bg-white p-6 rounded-2xl border shadow-sm">
-              <h3 className="text-lg font-bold text-slate-900 mb-4 pb-2 border-b flex items-center gap-2">
-                <span className="w-2 h-6 bg-primary-500 rounded-full"></span>
+            <div key={idx} className="">
+              <h3 className="text-xl font-extrabold text-slate-900 mb-6 flex items-center gap-3">
+                <span className="w-1.5 h-6 bg-primary-600 rounded-full"></span>
                 {section.category}
               </h3>
-              <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+              <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
                 {section.subjects.map((sub, sIdx) => (
-                  <Link to={`/subject/${currentGrade.id}/${sub}`} key={sIdx} className="bg-slate-50 border border-slate-200 rounded-xl p-4 flex items-center justify-between hover:bg-primary-50 hover:border-primary-300 hover:shadow-sm transition-all group">
-                    <span className="font-medium text-slate-700 group-hover:text-primary-700">{sub}</span>
-                    <ArrowRight size={16} className="text-slate-300 group-hover:text-primary-500" />
+                  <Link to={`/subject/${currentGrade.id}/${sub}`} key={sIdx} className="bg-white group rounded-2xl overflow-hidden shadow-sm hover:shadow-xl hover:-translate-y-1 transition-all border border-slate-100 flex flex-col h-48">
+                    <div className="h-28 w-full relative overflow-hidden bg-slate-200">
+                      <img src={getSubjectImage(sub)} alt={sub} className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" />
+                      <div className="absolute inset-0 bg-gradient-to-t from-slate-900/40 to-transparent"></div>
+                    </div>
+                    <div className="p-4 bg-white flex items-center justify-between flex-grow">
+                      <span className="font-bold text-slate-800 group-hover:text-primary-600 flex-1 leading-tight text-sm pr-2">{sub}</span>
+                      <ArrowRight size={16} className="text-slate-300 group-hover:text-primary-600 flex-shrink-0" />
+                    </div>
                   </Link>
                 ))}
               </div>
@@ -122,18 +151,21 @@ const CourseListing = () => {
 
       {/* A/L Render (Grades 12-13) */}
       {currentGrade.type === 'al' && (
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
           {alStreams.map((stream, idx) => (
-            <Link to={`/subject/${currentGrade.id}/${stream.name}`} key={idx} className="card overflow-hidden hover:-translate-y-1 transition-transform group shadow-md hover:shadow-xl">
-              <div className={`h-36 bg-gradient-to-br ${stream.color} flex flex-col items-center justify-center text-white relative overflow-hidden`}>
-                <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full -translate-y-16 translate-x-16"></div>
-                <span className="text-6xl mb-2 drop-shadow-md">{stream.icon}</span>
-                <span className="font-bold text-lg tracking-wide shadow-sm">{stream.name}</span>
-              </div>
-              <div className="p-4 bg-white text-center">
-                <span className="text-primary-600 font-semibold group-hover:underline flex items-center justify-center gap-2">
-                  Browse Stream <ArrowRight size={16} />
-                </span>
+            <Link to={`/subject/${currentGrade.id}/${stream.name}`} key={idx} className="group rounded-3xl overflow-hidden shadow-md hover:shadow-2xl transition-all border border-slate-100 relative h-64 flex items-end">
+              <img src={stream.image} alt={stream.name} className="absolute inset-0 w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" />
+              <div className={`absolute inset-0 bg-gradient-to-t ${stream.color} opacity-80 mix-blend-multiply`}></div>
+              <div className="absolute inset-0 bg-gradient-to-t from-slate-900 via-slate-900/40 to-transparent"></div>
+              
+              <div className="p-8 relative z-10 w-full flex items-center justify-between">
+                <div>
+                  <span className="text-5xl mb-3 block drop-shadow-lg opacity-90">{stream.icon}</span>
+                  <h3 className="font-extrabold text-3xl text-white drop-shadow-md">{stream.name}</h3>
+                </div>
+                <div className="bg-white/20 backdrop-blur-md text-white px-5 py-3 rounded-xl font-bold group-hover:bg-white group-hover:text-slate-900 transition-colors flex items-center gap-2">
+                  Explore <ArrowRight size={18} />
+                </div>
               </div>
             </Link>
           ))}
