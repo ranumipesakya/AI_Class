@@ -18,6 +18,18 @@ import g6L13Pdf from '../assets/G6-L13.pdf';
 import g6L14Pdf from '../assets/G6-L14.pdf';
 import g6L15Pdf from '../assets/G6-L15.pdf';
 
+// Sinhala PDFs
+import g6S1Pdf from '../assets/G6-S1.pdf';
+import g6S2Pdf from '../assets/G6-S2.pdf';
+import g6S3Pdf from '../assets/G6-S3.pdf';
+import g6S4Pdf from '../assets/G6-S4.pdf';
+// Note: S5 is missing
+import g6S6Pdf from '../assets/G6-S6.pdf';
+import g6S7Pdf from '../assets/G6-S7.pdf';
+import g6S8Pdf from '../assets/G6-S8.pdf';
+import g6S9Pdf from '../assets/G6-S9.pdf';
+import g6S10Pdf from '../assets/G6-S10.pdf';
+
 // Hardcoded DB of Grade 6 Buddhism Chapters
 const grade6BuddhismChapters = [
   { id: 1, en: "The wonderful prince Bosat", si: "අසිරිමත් බෝසත් කුමරු", pdfUrl: g6L1Pdf },
@@ -45,16 +57,16 @@ const grade6BuddhismChapters = [
 
 // Hardcoded DB of Grade 6 Sinhala Chapters
 const grade6SinhalaChapters = [
-  { id: 1, en: "Fox was deceived", si: "නරියට රැවටිච්ච" },
-  { id: 2, en: "Morning View Poem (Udaya Siri)", si: "උදය සිරි" },
-  { id: 3, en: "Let's go to Chicheng Chulengang", si: "චීනෙන් චීනෙට..." },
-  { id: 4, en: "Alphabet and Pillam", si: "අක්ෂරමාලාව හා පිල්ලම්" },
-  { id: 5, en: "Nouns and their Variants", si: "නාම පද හා එහි ප්‍රභේද" },
-  { id: 6, en: "Know the Customs Well", si: "සිරින් හොද දන ගෙන" },
-  { id: 7, en: "Elephant Menace", si: "අලි උවදුර" },
-  { id: 8, en: "Nalapana Jataka", si: "නලපාන ජාතකය" },
-  { id: 9, en: "Verbs and their Variants", si: "ක්‍රියා පද හා එහි ප්‍රභේද" },
-  { id: 10, en: "Sentence Formation", si: "වාක්‍ය නිර්මාණය" },
+  { id: 1, en: "Fox was deceived", si: "නරියට රැවටිච්ච", pdfUrl: g6S1Pdf },
+  { id: 2, en: "Morning View Poem (Udaya Siri)", si: "උදය සිරි", pdfUrl: g6S2Pdf },
+  { id: 3, en: "Let's go to Chicheng Chulengang", si: "චීනෙන් චීනෙට...", pdfUrl: g6S3Pdf },
+  { id: 4, en: "Alphabet and Pillam", si: "අක්ෂරමාලාව හා පිල්ලම්", pdfUrl: g6S4Pdf },
+  { id: 5, en: "Nouns and their Variants", si: "නාම පද හා එහි ප්‍රභේද" }, // No PDF yet
+  { id: 6, en: "Know the Customs Well", si: "සිරින් හොද දන ගෙන", pdfUrl: g6S6Pdf },
+  { id: 7, en: "Elephant Menace", si: "අලි උවදුර", pdfUrl: g6S7Pdf },
+  { id: 8, en: "Nalapana Jataka", si: "නලපාන ජාතකය", pdfUrl: g6S8Pdf },
+  { id: 9, en: "Verbs and their Variants", si: "ක්‍රියා පද හා එහි ප්‍රභේද", pdfUrl: g6S9Pdf },
+  { id: 10, en: "Sentence Formation", si: "වාක්‍ය නිර්මාණය", pdfUrl: g6S10Pdf },
   { id: 11, en: "Give Credit to Kala Lake and Away", si: "කලා වැවට පිය..." },
   { id: 12, en: "The walking leaf", si: "ඇවිදින කොළයා" },
   { id: 13, en: "Aggala Kan Dong Putha", si: "අග්ගලා කනඩොං පුතා" },
