@@ -1,9 +1,17 @@
-import { Link } from 'react-router-dom';
-import { BookOpen, User, Menu } from 'lucide-react';
+import { Link, useNavigate } from 'react-router-dom';
+import { BookOpen, User, Menu, LogOut } from 'lucide-react';
 import { useState } from 'react';
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const navigate = useNavigate();
+  const userInfo = localStorage.getItem('userInfo');
+
+  const handleLogout = () => {
+    localStorage.removeItem('userInfo');
+    navigate('/login');
+    setIsOpen(false);
+  };
 
   return (
     <nav className="bg-white border-b border-primary-100 fixed w-full top-0 z-50">
@@ -22,10 +30,18 @@ const Navbar = () => {
             <div className="flex items-center gap-2 text-sm text-slate-500 border-l pl-4">
               <span>EN</span> | <span>සිං</span> | <span>தமி</span>
             </div>
-            <button className="btn-secondary flex items-center gap-2">
-              <User size={18} />
-              Login
-            </button>
+            
+            {userInfo ? (
+              <button onClick={handleLogout} className="btn-secondary flex items-center gap-2 text-red-600 hover:bg-red-50 border-red-200">
+                <LogOut size={18} />
+                Logout
+              </button>
+            ) : (
+              <Link to="/login" className="btn-primary flex items-center gap-2">
+                <User size={18} />
+                Login
+              </Link>
+            )}
           </div>
 
           <div className="flex items-center md:hidden">
@@ -39,9 +55,14 @@ const Navbar = () => {
       {isOpen && (
         <div className="md:hidden bg-white border-b p-4">
           <div className="flex flex-col space-y-4">
-            <Link to="/courses" className="text-slate-600 font-medium">Courses</Link>
-            <Link to="/dashboard" className="text-slate-600 font-medium">Dashboard</Link>
-            <button className="btn-primary w-full mt-2">Login</button>
+            <Link to="/courses" className="text-slate-600 font-medium" onClick={() => setIsOpen(false)}>Courses</Link>
+            <Link to="/dashboard" className="text-slate-600 font-medium" onClick={() => setIsOpen(false)}>Dashboard</Link>
+            
+            {userInfo ? (
+              <button onClick={handleLogout} className="btn-secondary w-full mt-2 text-red-600">Logout</button>
+            ) : (
+              <Link to="/login" className="btn-primary flex justify-center w-full mt-2" onClick={() => setIsOpen(false)}>Login</Link>
+            )}
           </div>
         </div>
       )}
