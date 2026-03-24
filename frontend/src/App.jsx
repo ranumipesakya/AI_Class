@@ -8,6 +8,7 @@ import TeacherDashboard from './pages/TeacherDashboard';
 import QuizPage from './pages/QuizPage';
 import Login from './pages/Login';
 import Register from './pages/Register';
+import SubjectDetails from './pages/SubjectDetails';
 import AIChatbot from './components/AIChatbot';
 
 // Route protector function
@@ -33,6 +34,7 @@ function App() {
             
             {/* Protected Routes */}
             <Route path="/courses" element={<ProtectedRoute><CourseListing /></ProtectedRoute>} />
+            <Route path="/subject/:gradeId/:subjectName" element={<ProtectedRoute><SubjectDetails /></ProtectedRoute>} />
             <Route path="/courses/:courseId/lesson/:lessonId" element={<ProtectedRoute><LessonPage /></ProtectedRoute>} />
             <Route path="/dashboard" element={<ProtectedRoute><StudentDashboard /></ProtectedRoute>} />
             <Route path="/teacher-dashboard" element={<ProtectedRoute><TeacherDashboard /></ProtectedRoute>} />

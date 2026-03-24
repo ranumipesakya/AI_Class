@@ -88,7 +88,7 @@ const CourseListing = () => {
       {currentGrade.type === 'middle' && (
         <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-4">
           {middleSchoolSubjects.map((subject, idx) => (
-            <Link to={`/courses?grade=${currentGrade.id}&subject=${subject}`} key={idx} className="bg-white border hover:border-primary-400 hover:shadow-lg rounded-xl p-5 flex flex-col items-center justify-center text-center gap-3 transition-all group">
+            <Link to={`/subject/${currentGrade.id}/${subject}`} key={idx} className="bg-white border hover:border-primary-400 hover:shadow-lg rounded-xl p-5 flex flex-col items-center justify-center text-center gap-3 transition-all group">
               <div className="w-12 h-12 rounded-full bg-primary-50 text-primary-600 flex items-center justify-center group-hover:scale-110 transition-transform">
                 <Book className="w-6 h-6" />
               </div>
@@ -109,7 +109,7 @@ const CourseListing = () => {
               </h3>
               <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
                 {section.subjects.map((sub, sIdx) => (
-                  <Link to={`/courses?grade=${currentGrade.id}&subject=${sub}`} key={sIdx} className="bg-slate-50 border border-slate-200 rounded-xl p-4 flex items-center justify-between hover:bg-primary-50 hover:border-primary-300 hover:shadow-sm transition-all group">
+                  <Link to={`/subject/${currentGrade.id}/${sub}`} key={sIdx} className="bg-slate-50 border border-slate-200 rounded-xl p-4 flex items-center justify-between hover:bg-primary-50 hover:border-primary-300 hover:shadow-sm transition-all group">
                     <span className="font-medium text-slate-700 group-hover:text-primary-700">{sub}</span>
                     <ArrowRight size={16} className="text-slate-300 group-hover:text-primary-500" />
                   </Link>
@@ -124,7 +124,7 @@ const CourseListing = () => {
       {currentGrade.type === 'al' && (
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {alStreams.map((stream, idx) => (
-            <Link to={`/courses?grade=${currentGrade.id}&stream=${stream.name}`} key={idx} className="card overflow-hidden hover:-translate-y-1 transition-transform group shadow-md hover:shadow-xl">
+            <Link to={`/subject/${currentGrade.id}/${stream.name}`} key={idx} className="card overflow-hidden hover:-translate-y-1 transition-transform group shadow-md hover:shadow-xl">
               <div className={`h-36 bg-gradient-to-br ${stream.color} flex flex-col items-center justify-center text-white relative overflow-hidden`}>
                 <div className="absolute top-0 right-0 w-32 h-32 bg-white opacity-10 rounded-full -translate-y-16 translate-x-16"></div>
                 <span className="text-6xl mb-2 drop-shadow-md">{stream.icon}</span>
