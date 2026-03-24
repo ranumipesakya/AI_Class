@@ -2,10 +2,14 @@ import { Book, Award, Clock, ArrowRight } from 'lucide-react';
 import { Link } from 'react-router-dom';
 
 const StudentDashboard = () => {
+  const userInfo = localStorage.getItem('userInfo');
+  const user = userInfo ? JSON.parse(userInfo) : null;
+  const firstName = user?.name ? user.name.split(' ')[0] : 'Student';
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-slate-900">Welcome back, Kasun!</h1>
+        <h1 className="text-3xl font-bold text-slate-900">Welcome back, {firstName}!</h1>
         <p className="text-slate-600 mt-2">Here's your learning progress for the week.</p>
       </div>
 
