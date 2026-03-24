@@ -1,7 +1,6 @@
 import i18n from 'i18next';
 import { initReactI18next } from 'react-i18next';
 
-// Translations
 const resources = {
   en: {
     translation: {
@@ -9,24 +8,150 @@ const resources = {
       "navbar_dashboard": "Dashboard",
       "navbar_login": "Login",
       "navbar_logout": "Logout",
+      
       "home_hero_title1": "Empower Your Future with",
       "home_hero_title2": "LankaEduHub",
       "home_hero_subtitle": "A comprehensive learning platform for Sri Lankan students. Master your A/L and O/L syllabuses with expert teachers, past papers, quizzes, and our intelligent AI tutor.",
       "home_btn_browse": "Browse Courses",
-      "home_btn_login": "Student Login"
+      "home_btn_login": "Student Login",
+      "home_why_choose": "Why Choose Us?",
+      "home_why_desc": "We provide all the tools you need to succeed in your examinations.",
+      "home_feat1_title": "Comprehensive Materials",
+      "home_feat1_desc": "PDF notes, syllabus guides, and past papers with marking schemes.",
+      "home_feat2_title": "Video Lessons",
+      "home_feat2_desc": "High-quality recorded explanations from top island teachers.",
+      "home_feat3_title": "Interactive Quizzes",
+      "home_feat3_desc": "Test your knowledge with real-time scoring and analytics.",
+      "home_feat4_title": "Multi-language Support",
+      "home_feat4_desc": "Learn comfortably in Sinhala, Tamil, or English.",
+      
+      "course_title": "Discover Courses",
+      "course_desc": "Find the right classes to boost your results.",
+      "course_search": "Search subjects...",
+      "course_filter": "Filter",
+      "course_medium": "Medium",
+      "course_students": "students",
+      "course_by": "By",
+      "course_view": "View",
+      
+      "dash_welcome": "Welcome back",
+      "dash_subtitle": "Here's your learning progress for the week.",
+      "dash_enrolled": "Enrolled Courses",
+      "dash_quizzes": "Quizzes Completed",
+      "dash_time": "Learning Time",
+      "dash_continue": "Continue Learning",
+      "dash_resume": "Resume",
+      "dash_new_quiz": "New Quiz Available!",
+      "dash_quiz_desc": "Test your knowledge with the latest questions.",
+      "dash_start_quiz": "Start Quiz",
+      
+      "lesson_notes_title": "Lesson Notes",
+      "lesson_dl_pdf": "Download PDF Notes",
+      "lesson_mark_complete": "Mark as Complete",
+      "lesson_course_content": "Course Content",
+      "lesson_completed": "lessons completed",
+      
+      "quiz_title": "Physics Quiz: Mechanics",
+      "quiz_question": "Question",
+      "quiz_of": "of",
+      "quiz_exit": "Exit",
+      "quiz_submit": "Submit Answer",
+      "quiz_next": "Next Question",
+      "quiz_finish": "Finish Quiz",
+      "quiz_completed": "Quiz Completed!",
+      "quiz_success_msg": "You successfully finished the quiz.",
+      "quiz_score": "Your Score",
+      "quiz_retry": "Retry Quiz",
+      "quiz_back": "Back to Dashboard",
+      
+      "auth_signin_title": "Sign in to your account",
+      "auth_email": "Email Address",
+      "auth_password": "Password",
+      "auth_signin_btn": "Sign in",
+      "auth_no_account": "Don't have an account?",
+      "auth_reg_here": "Register here",
+      "auth_reg_title": "Create new account",
+      "auth_fullname": "Full Name",
+      "auth_confirm_pwd": "Confirm Password",
+      "auth_reg_btn": "Register",
+      "auth_have_account": "Already have an account?",
+      "auth_login_here": "Login here"
     }
   },
   si: {
     translation: {
       "navbar_courses": "පාඨමාලා",
-      "navbar_dashboard": "පුවරුව (Dashboard)",
+      "navbar_dashboard": "පුවරුව",
       "navbar_login": "ඇතුල් වන්න",
       "navbar_logout": "පිටවන්න",
+      
       "home_hero_title1": "ඔබේ අනාගතය සවිබල ගන්වන්න",
       "home_hero_title2": "LankaEduHub වෙතින්",
       "home_hero_subtitle": "ශ්‍රී ලාංකික සිසුන් සඳහා පුළුල් ඉගෙනුම් වේදිකාවක්. විශිෂ්ට ගුරුවරුන්, පසුගිය ප්‍රශ්න පත්‍ර සහ AI උපදේශක සමඟින් ඔබේ සාමාන්‍ය සහ උසස් පෙළ විෂය නිර්දේශ ප්‍රගුණ කරන්න.",
       "home_btn_browse": "පාඨමාලා බලන්න",
-      "home_btn_login": "සිසුන්ගේ පිවිසුම"
+      "home_btn_login": "සිසුන්ගේ පිවිසුම",
+      "home_why_choose": "අපව තෝරාගන්නේ ඇයි?",
+      "home_why_desc": "ඔබේ විභාග ජයග්‍රහණය කිරීමට අවශ්‍ය සියලුම මෙවලම් අපි සපයන්නෙමු.",
+      "home_feat1_title": "පූර්ණ අධ්‍යයන ද්‍රව්‍ය",
+      "home_feat1_desc": "PDF සටහන්, විෂය නිර්දේශ මාර්ගෝපදේශ සහ ලකුණු දීමේ පටිපාටි සමඟ පසුගිය ප්‍රශ්න පත්‍ර.",
+      "home_feat2_title": "වීඩියෝ පාඩම්",
+      "home_feat2_desc": "දිවයිනේ ප්‍රමුඛ පෙළේ ගුරුවරුන්ගේ උසස් තත්ත්වයේ පටිගත කළ පැහැදිලි කිරීම්.",
+      "home_feat3_title": "අන්තර්ක්‍රියාකාරී ප්‍රශ්නාවලි",
+      "home_feat3_desc": "තත්කාලීන ලකුණු සහ විශ්ලේෂණ සමඟ ඔබේ දැනුම පරීක්ෂා කරන්න.",
+      "home_feat4_title": "බහු භාෂා සහාය",
+      "home_feat4_desc": "සිංහල, දෙමළ හෝ ඉංග්‍රීසි භාෂාවෙන් පහසුවෙන් ඉගෙන ගන්න.",
+      
+      "course_title": "පාඨමාලා සොයාගන්න",
+      "course_desc": "ඔබේ ප්‍රතිඵල ඉහළ නැංවීමට නිසි පන්ති සොයාගන්න.",
+      "course_search": "විෂයයන් සොයන්න...",
+      "course_filter": "පෙරහන්",
+      "course_medium": "මාධ්‍යය",
+      "course_students": "සිසුන්",
+      "course_by": "විසින්",
+      "course_view": "බලන්න",
+      
+      "dash_welcome": "නැවත පැමිණියාට සාදරයෙන් පිළිගනිමු",
+      "dash_subtitle": "මෙන්න මෙම සතියේ ඔබේ ඉගෙනීමේ ප්‍රගතිය.",
+      "dash_enrolled": "ලියාපදිංචි වූ පාඨමාලා",
+      "dash_quizzes": "සම්පූර්ණ කළ ප්‍රශ්නාවලි",
+      "dash_time": "ඉගෙනුම් කාලය",
+      "dash_continue": "ඉගෙනීම දිගටම කරගෙන යන්න",
+      "dash_resume": "නැවත අරඹන්න",
+      "dash_new_quiz": "නව ප්‍රශ්නාවලියක් ඇත!",
+      "dash_quiz_desc": "නවතම ප්‍රශ්න සමඟ ඔබේ දැනුම පරීක්ෂා කරන්න.",
+      "dash_start_quiz": "ප්‍රශ්නාවලිය අරඹන්න",
+      
+      "lesson_notes_title": "පාඩම් සටහන්",
+      "lesson_dl_pdf": "PDF සටහන් බාගන්න",
+      "lesson_mark_complete": "සම්පූර්ණ කළ බව සලකුණු කරන්න",
+      "lesson_course_content": "පාඨමාලාවේ අන්තර්ගතය",
+      "lesson_completed": "පාඩම් සම්පූර්ණ කර ඇත",
+      
+      "quiz_title": "භෞතික විද්‍යා ප්‍රශ්නාවලිය",
+      "quiz_question": "ප්‍රශ්නය",
+      "quiz_of": "න්",
+      "quiz_exit": "පිටවන්න",
+      "quiz_submit": "පිළිතුර ඉදිරිපත් කරන්න",
+      "quiz_next": "ඊළඟ ප්‍රශ්නය",
+      "quiz_finish": "ප්‍රශ්නාවලිය අවසන් කරන්න",
+      "quiz_completed": "ප්‍රශ්නාවලිය සම්පූර්ණයි!",
+      "quiz_success_msg": "ඔබ ප්‍රශ්නාවලිය සාර්ථකව අවසන් කර ඇත.",
+      "quiz_score": "ඔබේ ලකුණු",
+      "quiz_retry": "නැවත උත්සාහ කරන්න",
+      "quiz_back": "පුවරුවට ආපසු",
+      
+      "auth_signin_title": "ඔබේ ගිණුමට ඇතුල් වන්න",
+      "auth_email": "විද්‍යුත් තැපැල් ලිපිනය",
+      "auth_password": "මුරපදය",
+      "auth_signin_btn": "ඇතුල් වන්න",
+      "auth_no_account": "ගිණුමක් නැද්ද?",
+      "auth_reg_here": "මෙහි ලියාපදිංචි වන්න",
+      "auth_reg_title": "නව ගිණුමක් සාදන්න",
+      "auth_fullname": "සම්පූර්ණ නම",
+      "auth_confirm_pwd": "මුරපදය තහවුරු කරන්න",
+      "auth_reg_btn": "ලියාපදිංචි වන්න",
+      "auth_have_account": "දැනටමත් ගිණුමක් තිබේද?",
+      "auth_login_here": "මෙහි ඇතුල් වන්න"
     }
   },
   ta: {
@@ -35,11 +160,74 @@ const resources = {
       "navbar_dashboard": "கட்டுப்பாட்டு அறை",
       "navbar_login": "உள்நுழைக",
       "navbar_logout": "வெளியேறு",
+      
       "home_hero_title1": "உங்கள் எதிர்காலத்தை மேம்படுத்துங்கள்",
       "home_hero_title2": "LankaEduHub உடன்",
-      "home_hero_subtitle": "இலங்கை மாணவர்களுக்கான விரிவான கற்றல் தளம். சிறந்த ஆசிரியர்கள், கடந்தகால வினாத்தாள்கள் மற்றும் AI உதவியுடன் உங்கள் க.பொ.த (A/L) மற்றும் (O/L) பாடங்களை மாஸ்டர் செய்யுங்கள்.",
+      "home_hero_subtitle": "இலங்கை மாணவர்களுக்கான விரிவான கற்றல் தளம். சிறந்த ஆசிரியர்கள், கடந்தகால வினாத்தாள்கள் மற்றும் AI உதவியுடன் உங்கள் கல்விப் பாடங்களை மாஸ்டர் செய்யுங்கள்.",
       "home_btn_browse": "பாடநெறிகளை காண்க",
-      "home_btn_login": "மாணவர் உள்நுழைவு"
+      "home_btn_login": "மாணவர் உள்நுழைவு",
+      "home_why_choose": "எங்களை ஏன் தேர்வு செய்ய வேண்டும்?",
+      "home_why_desc": "உங்கள் தேர்வுகளில் வெற்றிபெறத் தேவையான அனைத்து கருவிகளையும் நாங்கள் வழங்குகிறோம்.",
+      "home_feat1_title": "முழுமையான கற்றல் பொருட்கள்",
+      "home_feat1_desc": "PDF குறிப்புகள், பாடத்திட்ட வழிகாட்டிகள் மற்றும் மதிப்பீட்டுத் திட்டங்களுடன் கடந்த கால வினாத்தாள்கள்.",
+      "home_feat2_title": "வீடியோ பாடங்கள்",
+      "home_feat2_desc": "சிறந்த ஆசிரியர்களின் உயர்தர பதிவு செய்யப்பட்ட விளக்கங்கள்.",
+      "home_feat3_title": "ஊடாடும் வினாடி வினாக்கள்",
+      "home_feat3_desc": "நிகழ்நேர மதிப்பெண் மற்றும் பகுப்பாய்வுகளுடன் உங்கள் அறிவை சோதிக்கவும்.",
+      "home_feat4_title": "பன்மொழி ஆதரவு",
+      "home_feat4_desc": "சிங்களம், தமிழ் அல்லது ஆங்கிலத்தில் வசதியாக கற்றுக்கொள்ளுங்கள்.",
+      
+      "course_title": "பாடநெறிகளைக் கண்டறியவும்",
+      "course_desc": "உங்கள் முடிவுகளை மேம்படுத்த சரியான வகுப்புகளைக் கண்டறியவும்.",
+      "course_search": "பாடங்களைத் தேடவும்...",
+      "course_filter": "வடிகட்டி",
+      "course_medium": "மொழி",
+      "course_students": "மாணவர்கள்",
+      "course_by": "ஆசிரியர்:",
+      "course_view": "பார்வை",
+      
+      "dash_welcome": "மீண்டும் வருக",
+      "dash_subtitle": "இந்த வாரத்திற்கான உங்கள் கற்றல் முன்னேற்றம் இங்கே.",
+      "dash_enrolled": "சேர்க்கப்பட்ட பாடநெறிகள்",
+      "dash_quizzes": "முடிந்த வினாடி வினாக்கள்",
+      "dash_time": "கற்றல் நேரம்",
+      "dash_continue": "கற்றலைத் தொடரவும்",
+      "dash_resume": "தொடர்க",
+      "dash_new_quiz": "புதிய வினாடி வினா உள்ளது!",
+      "dash_quiz_desc": "சமீபத்திய கேள்விகளுடன் உங்கள் அறிவை சோதிக்கவும்.",
+      "dash_start_quiz": "வினாடி வினாவைத் தொடங்கவும்",
+      
+      "lesson_notes_title": "பாடக் குறிப்புகள்",
+      "lesson_dl_pdf": "PDF குறிப்புகளைப் பதிவிறக்குக",
+      "lesson_mark_complete": "முடிந்ததாகக் குறிக்கவும்",
+      "lesson_course_content": "பாடநெறி உள்ளடக்கம்",
+      "lesson_completed": "பாடங்கள் முடிந்துள்ளன",
+      
+      "quiz_title": "பௌதீகவியல் வினாடி வினா",
+      "quiz_question": "கேள்வி",
+      "quiz_of": "/",
+      "quiz_exit": "வெளியேறு",
+      "quiz_submit": "பதிலைச் சமர்ப்பிக்கவும்",
+      "quiz_next": "அடுத்த கேள்வி",
+      "quiz_finish": "வினாடி வினாவை முடிக்கவும்",
+      "quiz_completed": "வினாடி வினா முடிந்தது!",
+      "quiz_success_msg": "நீங்கள் வினாடி வினாவை வெற்றிகரமாக முடித்துவிட்டீர்கள்.",
+      "quiz_score": "உங்கள் மதிப்பெண்",
+      "quiz_retry": "மீண்டும் முயற்சிக்கவும்",
+      "quiz_back": "கட்டுப்பாட்டு அறைக்குத் திரும்பு",
+      
+      "auth_signin_title": "உங்கள் கணக்கில் உள்நுழையவும்",
+      "auth_email": "மின்னஞ்சல் முகவரி",
+      "auth_password": "கடவுச்சொல்",
+      "auth_signin_btn": "உள்நுழைக",
+      "auth_no_account": "கணக்கு இல்லையா?",
+      "auth_reg_here": "இங்கே பதிவு செய்க",
+      "auth_reg_title": "புதிய கணக்கை உருவாக்கவும்",
+      "auth_fullname": "முழுப் பெயர்",
+      "auth_confirm_pwd": "கடவுச்சொல்லை உறுதிப்படுத்துக",
+      "auth_reg_btn": "பதிவு செய்க",
+      "auth_have_account": "ஏற்கனவே கணக்கு உள்ளதா?",
+      "auth_login_here": "இங்கே உள்நுழைக"
     }
   }
 };
@@ -48,10 +236,10 @@ i18n
   .use(initReactI18next)
   .init({
     resources,
-    lng: "en", // default language
+    lng: "en", 
     fallbackLng: "en",
     interpolation: {
-      escapeValue: false // not needed for react as it escapes by default
+      escapeValue: false 
     }
   });
 

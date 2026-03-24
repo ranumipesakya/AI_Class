@@ -1,6 +1,9 @@
 import { PlayCircle, FileText, CheckCircle, Video } from 'lucide-react';
+import { useTranslation } from 'react-i18next';
 
 const LessonPage = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8 flex flex-col lg:flex-row gap-6">
       {/* Video Content Area */}
@@ -20,16 +23,16 @@ const LessonPage = () => {
         </div>
 
         <div className="mt-6 bg-white p-6 rounded-xl shadow-sm border border-slate-100">
-          <h2 className="text-xl font-semibold mb-2">Lesson Notes</h2>
+          <h2 className="text-xl font-semibold mb-2">{t('lesson_notes_title')}</h2>
           <p className="text-slate-600 mb-4 whitespace-pre-line text-sm leading-relaxed">
             In this lesson, we will cover the basics of kinematics focusing on linear motion at constant acceleration. We solve 10 past paper questions from 2018-2022.
           </p>
           <div className="flex gap-4">
             <button className="btn-secondary flex items-center gap-2 text-sm">
-              <FileText size={16} /> Download PDF Notes
+              <FileText size={16} /> {t('lesson_dl_pdf')}
             </button>
             <button className="btn-secondary flex items-center gap-2 text-sm text-emerald-600 border-emerald-200 bg-emerald-50">
-              <CheckCircle size={16} /> Mark as Complete
+              <CheckCircle size={16} /> {t('lesson_mark_complete')}
             </button>
           </div>
         </div>
@@ -39,8 +42,8 @@ const LessonPage = () => {
       <div className="lg:w-1/3">
         <div className="bg-white rounded-xl shadow-sm border border-slate-100 sticky top-20">
           <div className="p-4 border-b">
-            <h3 className="font-bold text-lg">Course Content</h3>
-            <p className="text-sm text-slate-500">2 / 12 lessons completed</p>
+            <h3 className="font-bold text-lg">{t('lesson_course_content')}</h3>
+            <p className="text-sm text-slate-500">2 / 12 {t('lesson_completed')}</p>
             <div className="w-full bg-slate-100 h-2 rounded-full mt-2">
               <div className="bg-primary-500 h-2 rounded-full" style={{ width: '15%' }}></div>
             </div>

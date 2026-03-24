@@ -31,29 +31,29 @@ const Home = () => {
       <section className="py-20 px-4 sm:px-6 lg:px-8 bg-white">
         <div className="max-w-7xl mx-auto">
           <div className="text-center mb-16">
-            <h2 className="text-3xl font-bold text-slate-900">Why Choose Us?</h2>
-            <p className="mt-4 text-slate-600 max-w-2xl mx-auto">We provide all the tools you need to succeed in your examinations.</p>
+            <h2 className="text-3xl font-bold text-slate-900">{t('home_why_choose')}</h2>
+            <p className="mt-4 text-slate-600 max-w-2xl mx-auto">{t('home_why_desc')}</p>
           </div>
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             <FeatureCard 
               icon={<BookOpen className="h-8 w-8 text-primary-500" />}
-              title="Comprehensive Materials"
-              desc="PDF notes, syllabus guides, and past papers with marking schemes."
+              title={t('home_feat1_title')}
+              desc={t('home_feat1_desc')}
             />
             <FeatureCard 
               icon={<Video className="h-8 w-8 text-primary-500" />}
-              title="Video Lessons"
-              desc="High-quality recorded explanations from top island teachers."
+              title={t('home_feat2_title')}
+              desc={t('home_feat2_desc')}
             />
             <FeatureCard 
               icon={<Target className="h-8 w-8 text-primary-500" />}
-              title="Interactive Quizzes"
-              desc="Test your knowledge with real-time scoring and analytics."
+              title={t('home_feat3_title')}
+              desc={t('home_feat3_desc')}
             />
             <FeatureCard 
               icon={<Award className="h-8 w-8 text-primary-500" />}
-              title="Multi-language Support"
-              desc="Learn comfortably in Sinhala, Tamil, or English."
+              title={t('home_feat4_title')}
+              desc={t('home_feat4_desc')}
             />
           </div>
         </div>

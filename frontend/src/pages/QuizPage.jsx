@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { ArrowLeft, ArrowRight, CheckCircle, XCircle } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const QuizPage = () => {
+  const { t } = useTranslation();
   const [currentQuestion, setCurrentQuestion] = useState(0);
   const [selectedOption, setSelectedOption] = useState(null);
   const [isSubmitted, setIsSubmitted] = useState(false);
@@ -59,9 +61,9 @@ const QuizPage = () => {
       {!showResult ? (
         <div className="card shadow-lg p-6 sm:p-10 border-primary-100">
           <div className="flex justify-between items-center mb-6 border-b pb-4">
-            <h1 className="text-xl font-bold text-slate-800">Physics Quiz: Mechanics</h1>
+            <h1 className="text-xl font-bold text-slate-800">{t('quiz_title')}</h1>
             <span className="bg-primary-100 text-primary-800 text-sm font-semibold px-3 py-1 rounded-full">
-              Question {currentQuestion + 1} of {questions.length}
+              {t('quiz_question')} {currentQuestion + 1} {t('quiz_of')} {questions.length}
             </span>
           </div>
 
@@ -109,7 +111,7 @@ const QuizPage = () => {
 
           <div className="flex justify-between items-center pt-6 border-t">
             <Link to="/dashboard" className="text-slate-500 hover:text-slate-700 flex items-center gap-1 font-medium">
-              <ArrowLeft size={16} /> Exit
+              <ArrowLeft size={16} /> {t('quiz_exit')}
             </Link>
             
             {!isSubmitted ? (
@@ -118,14 +120,14 @@ const QuizPage = () => {
                 disabled={selectedOption === null}
                 className={`btn-primary px-6 ${selectedOption === null ? 'opacity-50 cursor-not-allowed' : ''}`}
               >
-                Submit Answer
+                {t('quiz_submit')}
               </button>
             ) : (
               <button 
                 onClick={handleNext} 
                 className="btn-primary px-6 flex items-center gap-2"
               >
-                {currentQuestion < questions.length - 1 ? 'Next Question' : 'Finish Quiz'} <ArrowRight size={18} />
+                {currentQuestion < questions.length - 1 ? t('quiz_next') : t('quiz_finish')} <ArrowRight size={18} />
               </button>
             )}
           </div>
@@ -135,11 +137,11 @@ const QuizPage = () => {
           <div className="w-24 h-24 bg-primary-100 rounded-full flex items-center justify-center mb-6">
             <Award className="h-12 w-12 text-primary-600" />
           </div>
-          <h1 className="text-4xl font-extrabold text-slate-900 mb-2">Quiz Completed!</h1>
-          <p className="text-lg text-slate-600 mb-8">You successfully finished the Mechanics quiz.</p>
+          <h1 className="text-4xl font-extrabold text-slate-900 mb-2">{t('quiz_completed')}</h1>
+          <p className="text-lg text-slate-600 mb-8">{t('quiz_success_msg')}</p>
           
           <div className="bg-slate-50 border rounded-2xl p-6 w-full max-w-sm mb-8">
-            <p className="text-sm text-slate-500 uppercase tracking-widest font-semibold mb-1">Your Score</p>
+            <p className="text-sm text-slate-500 uppercase tracking-widest font-semibold mb-1">{t('quiz_score')}</p>
             <div className="text-6xl font-black text-primary-600">
               {score}<span className="text-3xl text-slate-400">/{questions.length}</span>
             </div>
@@ -147,10 +149,10 @@ const QuizPage = () => {
           
           <div className="flex gap-4">
             <button onClick={() => window.location.reload()} className="btn-secondary">
-              Retry Quiz
+              {t('quiz_retry')}
             </button>
             <Link to="/dashboard" className="btn-primary px-8">
-              Back to Dashboard
+              {t('quiz_back')}
             </Link>
           </div>
         </div>

@@ -1,8 +1,10 @@
 import { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
+import { useTranslation } from 'react-i18next';
 
 const Register = () => {
+  const { t } = useTranslation();
   const [name, setName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
@@ -37,14 +39,14 @@ const Register = () => {
     <div className="min-h-[calc(100vh-64px)] flex items-center justify-center py-12 px-4 sm:px-6 lg:px-8 bg-slate-50">
       <div className="max-w-md w-full space-y-8 bg-white p-8 rounded-2xl shadow-xl border border-slate-100">
         <div>
-          <h2 className="mt-6 text-center text-3xl font-extrabold text-slate-900">Create new account</h2>
+          <h2 className="mt-6 text-center text-3xl font-extrabold text-slate-900">{t('auth_reg_title')}</h2>
         </div>
         {error && <div className="bg-red-50 text-red-600 p-3 rounded-lg text-sm text-center">{error}</div>}
         
         <form className="mt-8 space-y-6" onSubmit={submitHandler}>
           <div className="space-y-4 rounded-md shadow-sm">
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">Full Name</label>
+              <label className="block text-sm font-medium text-slate-700 mb-1">{t('auth_fullname')}</label>
               <input
                 type="text"
                 required
@@ -55,7 +57,7 @@ const Register = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">Email Address</label>
+              <label className="block text-sm font-medium text-slate-700 mb-1">{t('auth_email')}</label>
               <input
                 type="email"
                 required
@@ -66,7 +68,7 @@ const Register = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">Password</label>
+              <label className="block text-sm font-medium text-slate-700 mb-1">{t('auth_password')}</label>
               <input
                 type="password"
                 required
@@ -77,7 +79,7 @@ const Register = () => {
               />
             </div>
             <div>
-              <label className="block text-sm font-medium text-slate-700 mb-1">Confirm Password</label>
+              <label className="block text-sm font-medium text-slate-700 mb-1">{t('auth_confirm_pwd')}</label>
               <input
                 type="password"
                 required
@@ -95,15 +97,15 @@ const Register = () => {
               disabled={loading}
               className={`group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-lg text-white bg-primary-600 hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-primary-500 ${loading ? 'opacity-50 cursor-not-allowed' : ''}`}
             >
-              {loading ? 'Registering...' : 'Register'}
+              {loading ? '...' : t('auth_reg_btn')}
             </button>
           </div>
         </form>
 
         <div className="text-center text-sm">
-          <span className="text-slate-600">Already have an account? </span>
+          <span className="text-slate-600">{t('auth_have_account')} </span>
           <Link to="/login" className="font-medium text-primary-600 hover:text-primary-500">
-            Login here
+            {t('auth_login_here')}
           </Link>
         </div>
       </div>
