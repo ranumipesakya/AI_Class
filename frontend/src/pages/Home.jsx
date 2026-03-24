@@ -1,24 +1,27 @@
 import { ArrowRight, BookOpen, Video, Award, Target } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import { useTranslation } from 'react-i18next';
 
 const Home = () => {
+  const { t } = useTranslation();
+
   return (
     <div className="flex flex-col min-h-screen">
       {/* Hero Section */}
       <section className="bg-gradient-to-br from-primary-50 to-primary-100 py-20 px-4 sm:px-6 lg:px-8">
         <div className="max-w-7xl mx-auto flex flex-col items-center text-center">
           <h1 className="text-4xl md:text-6xl font-extrabold text-slate-900 tracking-tight leading-tight mb-6">
-            Empower Your Future with <span className="text-primary-600 block sm:inline">LankaEduHub</span>
+            {t('home_hero_title1')} <span className="text-primary-600 block sm:inline">{t('home_hero_title2')}</span>
           </h1>
           <p className="mt-4 max-w-2xl text-lg md:text-xl text-slate-600 mb-10">
-            A comprehensive learning platform for Sri Lankan students. Master your A/L and O/L syllabuses with expert teachers, past papers, quizzes, and our intelligent AI tutor.
+            {t('home_hero_subtitle')}
           </p>
           <div className="flex flex-col sm:flex-row gap-4">
             <Link to="/courses" className="btn-primary text-lg px-8 py-3 flex items-center justify-center gap-2">
-              Browse Courses <ArrowRight size={20} />
+              {t('home_btn_browse')} <ArrowRight size={20} />
             </Link>
             <Link to="/dashboard" className="btn-secondary text-lg px-8 py-3">
-              Student Login
+              {t('home_btn_login')}
             </Link>
           </div>
         </div>
