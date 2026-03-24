@@ -43,6 +43,31 @@ const grade6BuddhismChapters = [
   { id: 21, en: "Let us be Fertile with Devotion", si: "සැදැහැ ගුණයෙන් පොහොසත් වෙමු" }
 ];
 
+// Hardcoded DB of Grade 6 Sinhala Chapters
+const grade6SinhalaChapters = [
+  { id: 1, en: "Fox was deceived", si: "නරියට රැවටිච්ච" },
+  { id: 2, en: "Morning View Poem (Udaya Siri)", si: "උදය සිරි" },
+  { id: 3, en: "Let's go to Chicheng Chulengang", si: "චීනෙන් චීනෙට..." },
+  { id: 4, en: "Alphabet and Pillam", si: "අක්ෂරමාලාව හා පිල්ලම්" },
+  { id: 5, en: "Nouns and their Variants", si: "නාම පද හා එහි ප්‍රභේද" },
+  { id: 6, en: "Know the Customs Well", si: "සිරින් හොද දන ගෙන" },
+  { id: 7, en: "Elephant Menace", si: "අලි උවදුර" },
+  { id: 8, en: "Nalapana Jataka", si: "නලපාන ජාතකය" },
+  { id: 9, en: "Verbs and their Variants", si: "ක්‍රියා පද හා එහි ප්‍රභේද" },
+  { id: 10, en: "Sentence Formation", si: "වාක්‍ය නිර්මාණය" },
+  { id: 11, en: "Give Credit to Kala Lake and Away", si: "කලා වැවට පිය..." },
+  { id: 12, en: "The walking leaf", si: "ඇවිදින කොළයා" },
+  { id: 13, en: "Aggala Kan Dong Putha", si: "අග්ගලා කනඩොං පුතා" },
+  { id: 14, en: "Sasada Sasada Let's go on Moonlight", si: "සසද සසද..." },
+  { id: 15, en: "It is always like this in the Motherland", si: "සදා මෙලෙස..." },
+  { id: 16, en: "A Man with three deaths ate Honey", si: "මරණ තුනක් ඇති..." },
+  { id: 17, en: "A Small plant becomes a Tree", si: "පුංචි පැලේ ගස..." },
+  { id: 18, en: "The Good Luck", si: "වාසනාවන්" },
+  { id: 19, en: "The Watchman cursed the Gods Secretly", si: "රාසිං..." },
+  { id: 20, en: "Did the Sun Rise and Hide Again", si: "සූරිය උදා වී යලි..." },
+  { id: 21, en: "Enemy Friend", si: "සතුරු මිතුරා" }
+];
+
 const SubjectDetails = () => {
   const { gradeId, subjectName } = useParams();
   const { t } = useTranslation();
@@ -55,13 +80,14 @@ const SubjectDetails = () => {
   
   const readableGrade = gradeMap[gradeId] || gradeId;
 
-  // Let's decide what chapters to show. For now, if g6 + Buddhism, show our highly detailed array.
-  // Else, return a dummy array.
+  // Render specific syllabus if predefined
   let chapters = [];
   if (gradeId === 'g6' && subjectName === 'Buddhism') {
     chapters = grade6BuddhismChapters;
+  } else if (gradeId === 'g6' && subjectName === 'Sinhala') {
+    chapters = grade6SinhalaChapters;
   } else {
-    // Generate some dummy chapters for other subjects
+    // Generate some dummy chapters for other unexplored subjects
     chapters = Array.from({ length: 5 }).map((_, i) => ({
       id: i + 1,
       en: `Chapter ${i + 1} for ${subjectName}`,
